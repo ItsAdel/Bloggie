@@ -13,33 +13,41 @@
 </div>
 
 <div class="container py-5">
-    <form method="post">
-        <div class="mb-3">
-            <label class="form-label">Id</label>
-            <input type="text" class="form-control" id="id" asp-for="Id" readonly />
-        </div>
 
-        <div class="mb-3">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" asp-for="Name" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Display Name</label>
-            <input type="text" class="form-control" id="displayName" asp-for="DisplayName" />
-        </div>
-
-        <div class="mb-3">
-            <div class="flex">
-                <button type="submit" class="btn btn-dark">Update</button>
-                <button type="submit" class="btn btn-danger ms-2"
-                    asp-area=""
-                    asp-controller="AdminTags"
-                    asp-action="Delete"
-                >
-                    Delete
-                </button>
+    @if (Model != null)
+    {
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input type="text" class="form-control" id="id" asp-for="Id" readonly />
             </div>
-        </div>
-    </form>
+
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" asp-for="Name" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Display Name</label>
+                <input type="text" class="form-control" id="displayName" asp-for="DisplayName" />
+            </div>
+
+            <div class="mb-3">
+                <div class="flex">
+                    <button type="submit" class="btn btn-dark">Update</button>
+                    <button type="submit" class="btn btn-danger ms-2"
+                            asp-area=""
+                            asp-controller="AdminTags"
+                            asp-action="Delete">
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    } else
+    {
+        <p>Tag not found</p>
+    }
+
 </div>
